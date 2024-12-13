@@ -2,32 +2,32 @@ import json
 import csv
 from processamento_dados import Dados
 
-def leitura_json(path_json):
-    dados_json = []
-    with open(path_json, 'r') as file:
-        dados_json = json.load(file)
-    return dados_json
+# def leitura_json(path_json):
+#     dados_json = []
+#     with open(path_json, 'r') as file:
+#         dados_json = json.load(file)
+#     return dados_json
 
-def leitura_csv(path_csv):
+# def leitura_csv(path_csv):
 
-    dados_csv = []
-    with open(path_csv, 'r') as file:
-        spamreader = csv.DictReader(file, delimiter=',')
-        for row in spamreader:
-            dados_csv.append(row)
+#     dados_csv = []
+#     with open(path_csv, 'r') as file:
+#         spamreader = csv.DictReader(file, delimiter=',')
+#         for row in spamreader:
+#             dados_csv.append(row)
 
-    return dados_csv
+#     return dados_csv
 
-def leitura_dados(path, tipo_arquivo):
-    dados = []
+# def leitura_dados(path, tipo_arquivo):
+#     dados = []
 
-    if tipo_arquivo == 'csv':
-        dados = leitura_csv(path)
+#     if tipo_arquivo == 'csv':
+#         dados = leitura_csv(path)
     
-    elif tipo_arquivo == 'json':
-        dados = leitura_json(path)
+#     elif tipo_arquivo == 'json':
+#         dados = leitura_json(path)
 
-    return dados
+#     return dados
 
 def get_columns(dados):
     return list(dados[-1].keys())
@@ -75,10 +75,10 @@ path_csv = 'pipeline_dados/data_raw/dados_empresaB.csv'
 #Extract 
 
 dados_empresaA = Dados(path_json, 'json')
-print(dados_empresaA.dados)
+print(dados_empresaA.dados.nome_colunas)
 
 dados_empresaB = Dados(path_csv, 'csv')
-print(dados_empresaB.dados)
+print(dados_empresaB.dados.nome_colunas)
 
 # Iniciando a leitura
 #dados_json = leitura_dados(path_json,'json')
