@@ -72,8 +72,13 @@ def salvando_dados(dados, path):
 path_json = 'pipeline_dados/data_raw/dados_empresaA.json'
 path_csv = 'pipeline_dados/data_raw/dados_empresaB.csv'
 
+#Extract 
+
 dados_empresaA = Dados(path_json, 'json')
-print(dados_empresaA.path)
+print(dados_empresaA.dados)
+
+dados_empresaB = Dados(path_csv, 'csv')
+print(dados_empresaB.dados)
 
 # Iniciando a leitura
 #dados_json = leitura_dados(path_json,'json')
